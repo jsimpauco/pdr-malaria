@@ -1,3 +1,6 @@
 .DS_Store
 .ipynb_checkpoints
 __pycache__/
+environment_test.yml
+data/*
+!data/Plasmodium_falciparum_3D7_Genome.fasta
