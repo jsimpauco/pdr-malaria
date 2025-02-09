@@ -1,5 +1,7 @@
 # Predicting Drug Resistance in Malaria Using Language Models
 
+The goal of this project is to see if using a language model can be used to predict drug resistance within a malaria genome. This is done through the use of a custom BERT model, that checks if a strand of malaria has mutated. We can then speculate that the mutation is enough for the malaria strand to survive the vaccine.
+
 ## Running the project
 This project uses a `conda` environment for all dependencies.
 
