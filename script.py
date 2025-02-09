@@ -32,5 +32,8 @@ if __name__ == '__main__':
 
         config = json.load(open('config/data.json'))
 
-        # Cleaning data #
+        # Creating helper data #
         data.create_helperdata(**config)
+
+        # Creating paired data #
+        data.create_pairedData()

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 """
-data.py cleans the data required for this project
+data.py creates the data files required for this project
 """
 
 import os
-import pandas as pd
+import json
 from Bio import SeqIO
 
 # Together, these two functions take a large fasta file and create #
@@ -58,13 +58,25 @@ def create_pairedData():
         lines = list(zip(lines[:-1], lines[1:]))
         return lines
 
+    # Getting all filenames #
     filenames = []
     for filename in os.listdir('data'):
         if '.txt' in filename:
+            # Paired data file already created #
+            if filename == 'paired_data.txt':
+                continue
             f = 'data/' + filename
             filenames.append(f)
+
+    # Creating pairs #
     pairs = []
     for temp_file in filenames:
         pair = create_onepairs(temp_file)
         pairs = pairs + pair
-    return pairs
+    
+    # Writing file #
+    with open('data/paired_data.txt', 'w') as f:
+        f.write(json.dumps(pairs))
+
+    with open('data/paired_data.txt', 'r') as f:
+        a = json.loads(f.read())
