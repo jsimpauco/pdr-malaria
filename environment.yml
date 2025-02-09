@@ -1,4 +1,4 @@
-name: malaria
+name: pdr
 channels: 
   - pytorch
   - conda-forge
