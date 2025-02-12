@@ -2,7 +2,7 @@
 
 The goal of this project is to see if using a language model can be used to predict drug resistance within a malaria genome. This is done through the use of a custom BERT model, that checks if a strand of malaria has mutated. We can then speculate that the mutation is enough for the malaria strand to survive the vaccine.
 
-## Running the project
+## Creating environment
 This project uses a `conda` environment for all dependencies.
 
 Instructions to recreate project:
@@ -15,17 +15,19 @@ conda env create -f environment.yml
 conda activate pdr
 ```
 
-### Building the project stages using script.py.
+## Building the project stages using script.py.
 This project has CHANGE total stages to build the whole project: `data`
 - To run the whole project (i.e., all five stages in order), from the project root, run
 ```python
 python script.py all
 ```
-    - This will run the whole script with one argument.
+This will run the whole script with one argument.
 
 The stages are as follows:
-- To get the data, from the project root, run
+
+### Data
+To get the data, from the project root, run
 ```python
 python script.py data
 ```
-    - This fetches the data and creates many new files. The most important file is the `paired_data.txt` file, which will be used to train the model.
+- This fetches the data and creates many new files. The most important file is the `paired_data.txt` file, which will be used to train the model.
