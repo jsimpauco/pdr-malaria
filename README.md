@@ -21,9 +21,8 @@ This project has CHANGE total stages to build the whole project: `data`
 ```python
 python script.py all
 ```
-This will run the whole script with one argument.
-
-The stages are as follows:
+> [!NOTE]
+> This will run the whole script with one argument. Keep reading below if you would like the build the script at a certain step.
 
 ### Data
 To get the data, from the project root, run
