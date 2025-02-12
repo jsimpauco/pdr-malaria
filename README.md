@@ -6,7 +6,10 @@ The goal of this project is to see if using a language model can be used to pred
 This project uses a `conda` environment for all dependencies.
 
 Instructions to recreate project:
-- First, to install the dependencies, run the following command from the root directory of the project: `conda env create -f environment.yml`
+- First, to install the dependencies, run the following command from the root directory of the project:
+```
+conda env create -f environment.yml
+```
 - To activate the environment, run the following command: `conda activate pdr`
 
 ### Building the project stages using script.py.
