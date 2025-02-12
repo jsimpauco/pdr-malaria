@@ -18,7 +18,7 @@ conda activate pdr
 ## Building the project stages using script.py.
 This project has CHANGE total stages to build the whole project: `data`
 - To run the whole project (i.e., all five stages in order), from the project root, run
-```python
+```
 python script.py all
 ```
 > [!NOTE]
@@ -26,7 +26,7 @@ python script.py all
 
 ### Data
 To get the data, from the project root, run
-```python
+```
 python script.py data
 ```
 - This fetches the data and creates many new files. The most important file is the `paired_data.txt` file, which will be used to train the model.
