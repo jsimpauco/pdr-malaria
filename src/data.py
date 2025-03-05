@@ -4,6 +4,7 @@
 data.py creates the data files required for this project
 """
 
+# Imports #
 import os
 import json
 from Bio import SeqIO
