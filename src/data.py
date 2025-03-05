@@ -78,6 +78,3 @@ def create_pairedData():
     # Writing file #
     with open('data/paired_data.txt', 'w') as f:
         f.write(json.dumps(pairs))
-
-    with open('data/paired_data.txt', 'r') as f:
-        a = json.loads(f.read())
