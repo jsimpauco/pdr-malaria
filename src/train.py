@@ -5,6 +5,9 @@ train.py TO ADD
 """
 
 # Imports #
+import warnings # Prevents popups of any possible warnings #
+warnings.filterwarnings('ignore')
+import os
 import json
 import tqdm
 import torch
@@ -91,7 +94,7 @@ class BERTTrainer:
         # Using Negative Log Likelihood Loss function for predicting the masked_token #
         self.criterion = torch.nn.NLLLoss(ignore_index=0)
         self.log_freq = log_freq
-        print("Total Parameters:", sum([p.nelement() for p in self.model.parameters()]))
+        print("Total Parameters:", sum([p.nelement() for p in self.model.parameters()]), '\n')
 
     def train(self, epoch):
 
@@ -213,9 +216,17 @@ def train_model(seed, epochs, training_size, model_name):
     bert_lm = model.BERTLM(bert_model, len(t.vocab))
     bert_trainer = BERTTrainer(bert_lm, train_loader, device='cuda')
 
+    # Making new folder if folder does not exist already #
+    # if not os.path.isdir('models'):
+    #     os.makedirs('models')
+    #     print('models folder created\n')
+    # else:
+    #     print('models folder already created\n')
+
     # Training data #
     for epoch in range(epochs):
         bert_trainer.train(epoch)
         if epoch % 1 == 0 and epoch != 0:
             filename = f'models/{model_name}'
             torch.save(bert_trainer.model.state_dict(), filename)
+            print(f'\nModel filepath: {filename}')

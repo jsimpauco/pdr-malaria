@@ -3,16 +3,21 @@
 # Imports #
 import warnings # Prevents popups of any possible warnings #
 warnings.filterwarnings('ignore')
+import os
 import sys
 import json
 import src.data as data
 import src.train as train
+import src.evaluate as evaluate
 
 # Checking if script.py is being run as a script in command line #
 if __name__ == '__main__':
 
     # Getting args #
     args = sys.argv[1:]
+
+    # Clears console #
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     # all argument #
     if 'all' in args:
@@ -22,7 +27,8 @@ if __name__ == '__main__':
         # Setting args to all available arguments #
         args = [
             'data',
-            'train'
+            'train',
+            'evaluate'
         ]
     # Other arguments given #
     else:
@@ -51,5 +57,13 @@ if __name__ == '__main__':
 
         # Training model #
         train.train_model(**config)
+
+    # evaluate argument #
+    if 'evaluate' in args:
+
+        print('\nCurrently running: evaluate.py')
+
+        evaluate.calc_acc('smallMalariaModelEpoch10')
+        # evaluate.calc_acc('your_model')
 
     print('\nScript successfully ran!')
