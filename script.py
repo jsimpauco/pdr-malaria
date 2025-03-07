@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 # Imports #
+import warnings # Prevents popups of any possible warnings #
+warnings.filterwarnings('ignore')
 import sys
 import json
 import src.data as data
@@ -40,6 +42,7 @@ if __name__ == '__main__':
         # Creating paired data #
         data.create_pairedData()
 
+    # train argument #
     if 'train' in args:
 
         print('\nCurrently running: train.py')
@@ -48,3 +51,5 @@ if __name__ == '__main__':
 
         # Training model #
         train.train_model(**config)
+
+    print('\nScript successfully ran!')

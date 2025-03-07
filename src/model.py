@@ -4,21 +4,9 @@
 model.py TO ADD 
 """
 
-# Not used? #
-# import os
-# from pathlib import Path
-
-
-# import transformers, datasets
-# from transformers import Trainer
-# import tqdm
-# from torch.utils.data import Dataset, DataLoader #
-# import numpy as np
-# from torch.optim import Adam
-# from Bio import SeqIO
-# import pandas as pd
-
 # Imports #
+import warnings # Prevents popups of any possible warnings #
+warnings.filterwarnings('ignore')
 import math
 import torch
 import random
