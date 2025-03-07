@@ -4,6 +4,7 @@
 import sys
 import json
 import src.data as data
+import src.train as train
 
 # Checking if script.py is being run as a script in command line #
 if __name__ == '__main__':
@@ -18,7 +19,8 @@ if __name__ == '__main__':
 
         # Setting args to all available arguments #
         args = [
-            'data'
+            'data',
+            'train'
         ]
     # Other arguments given #
     else:
@@ -37,3 +39,12 @@ if __name__ == '__main__':
 
         # Creating paired data #
         data.create_pairedData()
+
+    if 'train' in args:
+
+        print('\nCurrently running: train.py')
+
+        config = json.load(open('config/train.json'))
+
+        # Training model #
+        train.train_model(**config)
