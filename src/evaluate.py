@@ -9,27 +9,35 @@ import warnings # Prevents popups of any possible warnings #
 warnings.filterwarnings('ignore')
 import json
 import torch
+import random
 import numpy as np
 import src.model as model
 
 def calc_acc(model_name):
 
-    # Setting variables #
+    # Getting validation data #
     with open('data/paired_data.txt', 'r') as f:
         pairs = json.loads(f.read())
-
+    random.Random(4).shuffle(pairs)
     t = model.tokenizer(
         vocab=['A', 'T', 'G', 'C'], 
         special_tokens=['[PAD]', '[CLS]', '[SEP]', '[MASK]', '[UNK]']
     )
+    validation_data = model.BERTDataset(
+        pairs[:int(len(pairs) * (0.010977430403091244 / 100))],
+        seq_len=1024,
+        tokenizer=t,
+        is_train=False
+    )
 
-    validation_data = model.BERTDataset(pairs[:int(len(pairs) * (0.010977430403091244 / 100))], seq_len=1024, tokenizer=t, is_train=False)
+    # Setting variables #
     bert_model = model.BERT(len(t.vocab))
     check_model = model.BERTLM(bert_model, len(t.vocab))
     check_model.load_state_dict(torch.load("models/"+model_name, map_location=torch.device('cpu')))
-
-    accuracies = []
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+    # For loop to calculate accuracy #
+    accuracies = []
     ind = 0
     for data in validation_data:
         if ind % 1000 == 0:
@@ -39,7 +47,8 @@ def calc_acc(model_name):
         # Turns tensorized and tokenized input back into readable nucleotides #
         seq = t.convert_ids_to_tokens(in_bert.tolist())
 
-        # Turns tensorized and tokenized output back into readable nucleotides #
+        # Turns tensorized and tokenized #
+        # output back into readable nucleotides #
         output = check_model(in_bert.reshape(1,-1))
 
         # .max grabs the option with the largest weight #
@@ -48,6 +57,7 @@ def calc_acc(model_name):
         pred = sum(pred, [])
         pred = t.convert_ids_to_tokens(pred)
         
+        # Calcuating accuracy #
         num_correct = 0
         for i in range(len(seq)):
             if seq[i] == pred[i]:

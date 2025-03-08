@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # all argument #
     if 'all' in args:
 
-        print("\n'all' argument given. Running whole script...")
+        print("'all' argument given. Running whole script...")
 
         # Setting args to all available arguments #
         args = [
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         ]
     # Other arguments given #
     else:
-        print('\nArguments given: ' + ', '.join(args))
+        print('Arguments given: ' + ', '.join(args))
         print('\nRunning script based on given arguments...')
 
     # data argument #
@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
         print('\nCurrently running: evaluate.py')
 
-        evaluate.calc_acc('smallMalariaModelEpoch10')
-        # evaluate.calc_acc('your_model')
+        # evaluate.calc_acc('smallMalariaModelEpoch10')
+        evaluate.calc_acc('your_model')
 
     print('\nScript successfully ran!')
