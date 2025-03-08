@@ -5,6 +5,8 @@ data.py creates the data files required for this project
 """
 
 # Imports #
+import warnings # Prevents popups of any possible warnings #
+warnings.filterwarnings('ignore')
 import os
 import json
 from Bio import SeqIO
