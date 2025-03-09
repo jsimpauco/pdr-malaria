@@ -4,3 +4,7 @@ __pycache__/
 environment_test.yml
 data/*
 !data/Plasmodium_falciparum_3D7_Genome.fasta
+models/*
+# !models/smallMalariaModelEpoch10
+# !models/largeMalariaModelEpoch1
+# !models/largeMalariaModelEpoch2
