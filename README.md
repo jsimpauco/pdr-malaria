@@ -47,6 +47,28 @@ python script.py train
     - `seed` controls the random seed used to shuffle the paired data
     - `epochs` determine the amount of epochs for the data to train on
     - `training_size` is a percentage of the dataset to train the data on
-    - `model_name` is the name of the output model that is saved in `models/` folder
+    - `model_name` is the name of the output model that is saved in `models` folder
 > [!WARNING]
 > This step will take a long time to run depending on the given `training_size`. We recommend a GPU to speed up this process. The current training size is set to only run on 5 data points for testing purposes.
+
+### Evaluate
+To evaluate the model, from the project root, run
+```
+python script.py evaluate
+```
+- This evaluates the model through the calculation of accuracy score on validation set.
+- The parameters `validation_size` and `model_name` can be changed within the `config/evaluate.json` file.
+    - `validation_size` is a percentage of the dataset to validate the model on
+    - `model_name` is the name of the model that will be evaluated
+> [!WARNING]
+> This step will take a long time to run depending on the given `validation_size`. We recommend a GPU to speed up this process. The current validation size is set to only run on 5 data points for testing purposes.
+
+### Compare
+To compare model accuracies, from the project root, run
+```
+python script.py compare
+```
+- This compares the model's accuracy scores on the validation set.
+- The parameters `add_model` is a boolean that determines whether or not to compare the model within the `config/evaluate.json` file
+> [!IMPORTANT]
+> compare uses the `config/evaluate.json` for the model that will be added into the comparison with the 3 other base models and the validation size for the set of data. This step will also take a long time depending on the given `validation_size`.
