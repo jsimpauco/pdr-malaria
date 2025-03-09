@@ -34,7 +34,8 @@ To get the data, from the project root, run
 python script.py data
 ```
 - This fetches the data and creates many new files, stored in the data folder. The most important file is the `paired_data.txt` file, which will be used to train the model.
-- The parameter `chunk_size` can be changed within the `config/data.json` file. This controls the chunk size for the data that is saved.
+- The parameter `chunk_size` can be changed within the `config/data.json` file
+    - This controls the chunk size for the data that is saved.
 
 ### Train
 To train the model, from the project root, run
@@ -43,4 +44,9 @@ python script.py train
 ```
 - This trains the model based on the classes and functions within `model.py`.
 - The parameters `seed`, `epochs`, `training_size`, and `model_name` can be changed within the `config/train.json` file.
-    - test
+    - `seed` controls the random seed used to shuffle the paired data
+    - `epochs` determine the amount of epochs for the data to train on
+    - `training_size` is a percentage of the dataset to train the data on
+    - `model_name` is the name of the output model that is saved in `models/` folder
+> [!WARNING]
+> This step will take a long time to run depending on the given `training_size`. We recommend a GPU to speed up this process. The current training size is set to only run on 5 data points for testing purposes.
