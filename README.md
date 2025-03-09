@@ -2,6 +2,15 @@
 
 The goal of this project is to see if using a language model can be used to predict drug resistance within a malaria genome. This is done through the use of a custom BERT model, that checks if a strand of malaria has mutated. We can then speculate that the mutation is enough for the malaria strand to survive the vaccine.
 
+## Table of Contents
+- [Getting the required files](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#getting-the-required-files)
+- [Creating environment](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#creating-environment)
+- [Building the project stages using script.py](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#building-the-project-stages-using-scriptpy)
+    - [Data](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#data)
+    - [Train](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#train)
+    - [Evaluate](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#evaluate)
+    - [Compare](https://github.com/jsimpauco/pdr-malaria?tab=readme-ov-file#compare)
+
 ## Getting the required files
 To get the required files, [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) is required to be downloaded. Once downloaded and installed, initialize `Git LFS` by running
 ```
@@ -30,7 +39,7 @@ conda env create -f environment.yml
 conda activate pdr
 ```
 
-## Building the project stages using script.py.
+## Building the project stages using script.py
 This project has **four** total stages to build the whole project: `data`, `train`, `evaluate`, and `compare`
 - To run the whole project (i.e., all four stages in order), from the project root, run
 ```
