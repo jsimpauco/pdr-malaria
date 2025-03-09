@@ -3,8 +3,19 @@
 The goal of this project is to see if using a language model can be used to predict drug resistance within a malaria genome. This is done through the use of a custom BERT model, that checks if a strand of malaria has mutated. We can then speculate that the mutation is enough for the malaria strand to survive the vaccine.
 
 ## Getting the required files
-- git clone
-- git lfs?
+To get the required files, [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) is required to be downloaded. Once downloaded and installed, initialize `Git LFS` by running
+```
+git lfs install
+```
+Once initialzed, the repository can be cloned by running
+```
+git clone https://github.com/jsimpauco/pdr-malaria.git
+```
+Finally, once cloned, run the following command from the root directory of the project:
+```
+git lfs clone
+```
+The required files for the project should now be successfully acquired.
 
 ## Creating environment
 This project uses a `conda` environment for all dependencies.
