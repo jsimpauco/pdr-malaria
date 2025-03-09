@@ -9,6 +9,7 @@ import json
 import src.data as data
 import src.train as train
 import src.evaluate as evaluate
+import src.compare as compare
 
 # Checking if script.py is being run as a script in command line #
 if __name__ == '__main__':
@@ -28,7 +29,8 @@ if __name__ == '__main__':
         args = [
             'data',
             'train',
-            'evaluate'
+            'evaluate',
+            'compare'
         ]
     # Other arguments given #
     else:
@@ -65,7 +67,14 @@ if __name__ == '__main__':
 
         config = json.load(open('config/evaluate.json'))
 
-        # evaluate.calc_acc('smallMalariaModelEpoch10')
         evaluate.calc_acc(**config)
+
+    if 'compare' in args:
+
+        print('\nCurrently running: compare.py')
+
+        config = json.load(open('config/compare.json'))
+
+        compare.compare(**config)
 
     print('\nScript successfully ran!')
