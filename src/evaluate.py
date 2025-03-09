@@ -86,4 +86,6 @@ def calc_acc(validation_size, model_name):
         accuracies.append(acc)
         ind = ind + 1
 
-    print(np.mean(accuracies))
+    accuracy = np.mean(accuracies)
+    print(f'\nAccuracy of {model_name}: {accuracy}')
+    return accuracy
