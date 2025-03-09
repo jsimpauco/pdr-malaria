@@ -94,7 +94,7 @@ class BERTTrainer:
         # Using Negative Log Likelihood Loss function for predicting the masked_token #
         self.criterion = torch.nn.NLLLoss(ignore_index=0)
         self.log_freq = log_freq
-        print("Total Parameters:", sum([p.nelement() for p in self.model.parameters()]), '\n')
+        print('\nTotal Parameters:', sum([p.nelement() for p in self.model.parameters()]), '\n')
 
     def train(self, epoch):
 
@@ -130,7 +130,6 @@ class BERTTrainer:
             is_next_bert = data["is_next"]
             label_bert = data["bert_label"]
             
-
             # 1. forward the next_sentence_prediction and masked_lm model #
             next_sent_output, mask_lm_output = self.model.forward(in_bert, segmentlabel_bert, is_train=True)
 
@@ -158,22 +157,12 @@ class BERTTrainer:
             avg_loss += loss.item()
             total_correct += correct
             total_element += is_next_bert.nelement()
-
-            # 4. validation step #
-            post_fix = {
-                "epoch": epoch,
-                "iter": i,
-                "avg_loss": avg_loss / (i + 1),
-                "avg_acc": total_correct / total_element * 100,
-                "loss": loss.item()
-            }
-
-            if i % self.log_freq == 0:
-                data_iter.write(str(post_fix))
+        
+        # Printing epoch #
         print(
-            f"EP{epoch}, {mode}: \
-            avg_loss={avg_loss / len(data_iter)}, \
-            total_acc={total_correct * 100.0 / total_element}"
+            f'EP{epoch}, {mode}: '
+            f'avg_loss={avg_loss / len(data_iter)}, '
+            f'total_acc={total_correct * 100.0 / total_element:}\n'
         )
 
 def train_model(seed, epochs, training_size, model_name):
@@ -222,4 +211,4 @@ def train_model(seed, epochs, training_size, model_name):
         if epoch % 1 == 0 and epoch != 0:
             filename = f'models/{model_name}'
             torch.save(bert_trainer.model.state_dict(), filename)
-            print(f'\nModel filepath: {filename}')
+            print(f'Model filepath: {filename}')
