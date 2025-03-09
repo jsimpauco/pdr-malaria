@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-evaluate.py TO ADD 
+evaluate.py calculates the accuracy for a given model using validation data
 """
 
 # Imports #

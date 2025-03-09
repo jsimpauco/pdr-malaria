@@ -67,6 +67,7 @@ if __name__ == '__main__':
 
         config = json.load(open('config/evaluate.json'))
 
+        # Evaluating accuracy #
         evaluate.calc_acc(**config)
 
     if 'compare' in args:
@@ -75,6 +76,7 @@ if __name__ == '__main__':
 
         config = json.load(open('config/compare.json'))
 
+        # Comparing models #
         compare.compare(**config)
 
     print('\nScript successfully ran!')

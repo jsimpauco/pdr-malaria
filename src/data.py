@@ -11,15 +11,13 @@ import os
 import json
 from Bio import SeqIO
 
-# Together, these two functions take a large fasta file and create #
-# strings of the nucleotide data contained within into seperate files for #
-# each speciemen of malaria included in the file #
-
 # RUNNING THESE WILL CREATE FILES #
 
 def create_helperdata(chunk_size):
     """
-    TO ADD
+    Together, these two functions take a large fasta file and create strings
+    of the nucleotide data contained within into seperate files for each
+    specimen of malaria included in the file
     """
 
     def _helper():
@@ -48,7 +46,7 @@ def create_helperdata(chunk_size):
 
 def create_pairedData():
     """
-    TO ADD
+    Creates the paired data that is later used to train and validate the models
     """
 
     def create_onepairs(filename):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-model.py TO ADD 
+model.py stores all the model classes and functions to create the model 
 """
 
 # Imports #

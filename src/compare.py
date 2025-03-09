@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 """
-compare.py TO ADD 
+compare.py compares models accuracy against one another. Use this to compare
+a user created model to the 3 base models that were included
 """
 
 # Imports #

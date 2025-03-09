@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-train.py TO ADD 
+train.py trains the model with the classes and functions within model.py
 """
 
 # Imports #
@@ -215,13 +215,6 @@ def train_model(seed, epochs, training_size, model_name):
     bert_model = model.BERT(len(t.vocab))
     bert_lm = model.BERTLM(bert_model, len(t.vocab))
     bert_trainer = BERTTrainer(bert_lm, train_loader, device='cuda')
-
-    # Making new folder if folder does not exist already #
-    # if not os.path.isdir('models'):
-    #     os.makedirs('models')
-    #     print('models folder created\n')
-    # else:
-    #     print('models folder already created\n')
 
     # Training data #
     for epoch in range(epochs):
