@@ -15,6 +15,12 @@ from tqdm import tqdm
 import src.model as model
 
 def calc_acc(validation_size, model_name):
+    """
+    Calculates the accuracy of the given model
+
+    validation_size (float): Percentage of data to validate on
+    model_name (str): Name of model to be evaluated
+    """
 
     print(f'\nCurrently evaluating: {model_name}')
 
