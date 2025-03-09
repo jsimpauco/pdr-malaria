@@ -2,6 +2,10 @@
 
 The goal of this project is to see if using a language model can be used to predict drug resistance within a malaria genome. This is done through the use of a custom BERT model, that checks if a strand of malaria has mutated. We can then speculate that the mutation is enough for the malaria strand to survive the vaccine.
 
+## Getting the required files
+- git clone
+- git lfs?
+
 ## Creating environment
 This project uses a `conda` environment for all dependencies.
 
@@ -16,8 +20,8 @@ conda activate pdr
 ```
 
 ## Building the project stages using script.py.
-This project has CHANGE total stages to build the whole project: `data`
-- To run the whole project (i.e., all five stages in order), from the project root, run
+This project has **four** total stages to build the whole project: `data`, `train`, `evaluate`, and `compare`
+- To run the whole project (i.e., all four stages in order), from the project root, run
 ```
 python script.py all
 ```
@@ -29,4 +33,14 @@ To get the data, from the project root, run
 ```
 python script.py data
 ```
-- This fetches the data and creates many new files. The most important file is the `paired_data.txt` file, which will be used to train the model.
+- This fetches the data and creates many new files, stored in the data folder. The most important file is the `paired_data.txt` file, which will be used to train the model.
+- The parameter `chunk_size` can be changed within the `config/data.json` file. This controls the chunk size for the data that is saved.
+
+### Train
+To train the model, from the project root, run
+```
+python script.py train
+```
+- This trains the model based on the classes and functions within `model.py`.
+- The parameters `seed`, `epochs`, `training_size`, and `model_name` can be changed within the `config/train.json` file.
+    - test
