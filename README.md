@@ -34,8 +34,8 @@ To get the data, from the project root, run
 python script.py data
 ```
 - This fetches the data and creates many new files, stored in the data folder. The most important file is the `paired_data.txt` file, which will be used to train the model.
-- The parameter `chunk_size` can be changed within the `config/data.json` file
-    - This controls the chunk size for the data that is saved.
+- The parameter `chunk_size` can be changed within the `config/data.json` file.
+    - `chunk_size` controls the chunk size for the data that is saved
 
 ### Train
 To train the model, from the project root, run
@@ -69,6 +69,7 @@ To compare model accuracies, from the project root, run
 python script.py compare
 ```
 - This compares the model's accuracy scores on the validation set.
-- The parameters `add_model` is a boolean that determines whether or not to compare the model within the `config/evaluate.json` file
+- The parameter `add_model` can be changed within the `config/compare.json` file.
+    - `add_model` is a boolean that determines whether or not to compare the model within the `config/evaluate.json` file
 > [!IMPORTANT]
-> compare uses the `config/evaluate.json` for the model that will be added into the comparison with the 3 other base models and the validation size for the set of data. This step will also take a long time depending on the given `validation_size`.
+> `compare` uses the `config/evaluate.json` for the model that will be added into the comparison with the 3 other base models and the validation size for the set of data. This step will also take a long time depending on the given `validation_size`.
