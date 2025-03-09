@@ -7,7 +7,7 @@ To get the required files, [Git LFS](https://docs.github.com/en/repositories/wor
 ```
 git lfs install
 ```
-Once initialzed, the repository can be cloned by running
+Once initialized, the repository can be cloned by running
 ```
 git clone https://github.com/jsimpauco/pdr-malaria.git
 ```
