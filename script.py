@@ -63,7 +63,9 @@ if __name__ == '__main__':
 
         print('\nCurrently running: evaluate.py')
 
+        config = json.load(open('config/evaluate.json'))
+
         # evaluate.calc_acc('smallMalariaModelEpoch10')
-        evaluate.calc_acc('your_model')
+        evaluate.calc_acc(**config)
 
     print('\nScript successfully ran!')
