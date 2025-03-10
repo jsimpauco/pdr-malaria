@@ -211,4 +211,7 @@ def train_model(seed, epochs, training_size, model_name):
         if epoch % 1 == 0 and epoch != 0:
             filename = f'models/{model_name}'
             torch.save(bert_trainer.model.state_dict(), filename)
-            print(f'Model filepath: {filename}')
+            print(
+                'Model successfully trained! Model saved to filepath:',
+                filename
+            )

@@ -78,3 +78,5 @@ def create_pairedData():
     # Writing file #
     with open('data/paired_data.txt', 'w') as f:
         f.write(json.dumps(pairs))
+
+    print("\nCreation of files complete! Data files stored in 'data/' directory")
