@@ -22,8 +22,11 @@ git clone https://github.com/jsimpauco/pdr-malaria.git
 ```
 Finally, once cloned, run the following command from the root directory of the project:
 ```
-git lfs clone
+git lfs pull
 ```
+> [!NOTE]
+> `git lfs pull` may not be needed, but should be ran just in case.
+
 The required files for the project should now be successfully acquired.
 
 ## Creating environment
